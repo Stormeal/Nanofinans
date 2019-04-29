@@ -1,0 +1,158 @@
+<div class="container">
+  <div class="row">
+
+    <p class="category" style="color: white"></p>
+    <!-- Nav tabs -->
+
+    <div class="nav-tabs-navigation">
+      <div class="nav-tabs-wrapper">
+        <ngb-tabset #t="ngbTabset">
+
+          <ngb-tab id="tab-selectbyid1" style="display: none;">
+            <ng-template hidden ngbTabTitle style="display: none; border:none !important">
+
+            </ng-template>
+            <ng-template ngbTabContent>
+
+              <div class="selection">
+
+                <h4>Lånebeløb: {{simpleSlider}} 000 kr </h4>
+                <p>Venlist indtast ønskede lånebeløb</p>
+
+
+                <nouislider class="slider slider-primary" [min]="10" [max]="500" [step]="5" [(ngModel)]="simpleSlider"
+                  [tooltips]="false"></nouislider>
+
+                <br>
+
+                <h4>Nedbetalingtid: {{yearSlider}} år </h4>
+                <p>Venlist indtast ønskede lånebeløb</p>
+
+
+                <nouislider class="slider slider-primary" [min]="1" [max]="15" [step]="1" [(ngModel)]="yearSlider"
+                  [tooltips]="false">
+                </nouislider>
+
+                <h4>Månedsbeløp: <b>3 400</b></h4>
+
+
+                <div class="input-group input-lg" [ngClass]="{'input-group-focus':focus===true}" placement="right"
+                  ngbTooltip="Indtast E-postadresse">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="now-ui-icons users_circle-08"></i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="test@test.no" (focus)="focus=true"
+                    (blur)="focus=false" style="background-color: white; color: black;">
+                </div>
+
+                <div class="input-group input-lg btn-tooltip" [ngClass]="{'input-group-focus':focus1===true}"
+                  placement="right" ngbTooltip="Indtast mobilnummer">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="now-ui-icons ui-1_email-85"></i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="90968713" (focus)="focus1=true"
+                    (blur)="focus1=false" style="background-color: white; color: black;">
+                </div>
+
+                <br>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox">
+                    <span class="form-check-sign"></span>
+                    Jeg samtykker til at Nanofinans kan behandle mine/våre&nbsp; &nbsp; <br>personopplysninger som
+                    beskrevet <a href="#"><b>her</b></a>.
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" checked>
+                    <span class="form-check-sign"></span>
+                    Jeg samtykker til at Nanofinans kan sende meg nyhetsbrev<br> på e-post og SMS.
+                  </label>
+                </div>
+
+                <button class="btn btn-primary btn-simple btn-round btn-lg" type="button"
+                  (click)="t.select('tab-selectbyid2')">Søk Nå</button>
+
+              </div>
+            </ng-template>
+
+
+          </ngb-tab>
+
+          <ngb-tab id="tab-selectbyid2">
+            <ng-template ngbTabTitle>
+            </ng-template>
+            <ng-template ngbTabContent>
+
+
+              <div class="selection">
+
+                <h4>Fortæl os lidt om dig selv</h4>
+                <br>
+                <p>Hva er dit fødselsnummer?</p>
+                <div class="input-group input-lg btn-tooltip" [ngClass]="{'input-group-focus':focus1===true}"
+                  placement="right" ngbTooltip="Indtast personnummer" style="width: 470px;">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="now-ui-icons users_single-02"></i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="ddmmåå#####" (focus)="focus1=true"
+                    (blur)="focus1=false" style="background-color: white; color: black;">
+                </div>
+                <br>
+
+                <p>Hva er ditt arbeidsforhold?</p>
+                <angular2-multiselect [data]="itemList" [(ngModel)]="selectedItems" [settings]="settings"
+                  (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)"
+                  (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)">
+                </angular2-multiselect>
+                <br>
+
+                <p>Hva er din utdanning?</p>
+                <angular2-multiselect [data]="itemList2" [(ngModel)]="selectedItems2" [settings]="settings"
+                  (onSelect)="onItemSelect2($event)" (onDeSelect)="OnItemDeSelect2($event)"
+                  (onSelectAll)="onSelectAll2($event)" (onDeSelectAll)="onDeSelectAll2($event)">
+                </angular2-multiselect>
+                <br>
+                <br>
+
+
+                <p>Er du Norsk statborger?</p>
+
+                <a class="btn btn-primary btn-round btn-lg" style="color: white">Ja</a>
+                <a class="btn btn-primary btn-simple btn-round btn-lg" target="_blank">Nei</a>
+
+                <p>Hva er din årsinntekt (brutto)?</p>
+                <div class="input-group input-lg btn-tooltip" [ngClass]="{'input-group-focus':focus1===true}"
+                  placement="right" ngbTooltip="Indtast årsinntekt" style="width: 470px;">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="now-ui-icons">kr</i>
+                    </span>
+                  </div>
+                  <input type="number" class="form-control" placeholder="10000" (focus)="focus1=true"
+                    (blur)="focus1=false" style="background-color: white; color: black;">
+                </div>
+                <br>
+                <hr>
+
+                <button class="btn btn-primary btn-simple btn-round btn-lg" type="button"
+                  (click)="t.select('tab-selectbyid1')">Tilbage</button>
+                <button class="btn btn-primary btn-round btn-lg" type="button"
+                  (click)="t.select('tab-selectbyid2')">Forsæt</button>
+              </div>
+
+
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+      </div>
+    </div>
+  </div>
+</div>

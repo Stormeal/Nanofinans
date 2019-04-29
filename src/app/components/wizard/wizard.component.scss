@@ -1,0 +1,48 @@
+$border-thin:                1px !default;
+$btn-round-radius:             30px         !default;
+$padding-btn-horizontal:       22px !default;
+$padding-btn-vertical:         11px !default;
+$padding-round-horizontal:     23px !default;
+$border-thick:               2px !default;
+$font-weight-normal:            400         !default;
+$font-size-small:              0.8571em     !default;
+$border-radius-small:           0.3875rem   !default;
+$line-height:                1.35em         !default;
+
+.selection {
+    border-radius: $btn-round-radius !important;
+    background-color: white;
+    border-width: $border-thick;
+    font-weight: $font-weight-normal;
+    line-height: $line-height;
+    margin: 10px 1px;
+    border: none;
+    padding: $padding-btn-vertical $padding-btn-horizontal;
+    color: black;
+}
+
+.custom-class-example {
+    color: black;
+    border-width: $border-thin;
+    border-radius: $btn-round-radius !important;
+    padding: $padding-btn-vertical  $padding-round-horizontal;
+
+    border-width: $border-thick;
+    font-weight: $font-weight-normal;
+    font-size: $font-size-small;
+    line-height: $line-height;
+    margin: 10px 1px;
+    border: none;
+    border-radius: $border-radius-small;
+    padding: $padding-btn-vertical $padding-btn-horizontal;
+    width: 150px;
+}
+.custom-class-example .c-token{
+    background: #38d574 !important;
+}
+.custom-class-example .pure-checkbox label::before {
+    border-color: #38d574 !important;
+}
+.custom-class-example .pure-checkbox input[type="checkbox"]:checked + label[_ngcontent-c1]:before {
+    background: #38d574 !important;
+}
